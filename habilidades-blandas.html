@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificaciones en Habilidades Blandas | Emilio Calep</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f8faff 0%, #eef2f7 100%);
+            --accent-pastel: #e0e7ff;
+            --primary-blue: #2a5298;
+            --text-main: #1a1a1a;
+            --text-muted: #636e72;
+            --glass: rgba(255, 255, 255, 0.8);
+            --card-radius: 28px;
+            --shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: var(--text-main);
+            padding: 50px 20px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(199, 210, 254, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(224, 231, 255, 0.4) 0%, transparent 40%);
+            z-index: -1;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        header { text-align: center; margin-bottom: 60px; }
+
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 3.2rem;
+            letter-spacing: -1.5px;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--primary-blue);
+            background: var(--accent-pastel);
+            padding: 8px 24px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-container { margin-bottom: 50px; display: flex; justify-content: center; }
+
+        .search-box {
+            width: 100%; max-width: 550px; padding: 20px 30px;
+            border-radius: 20px; border: 1px solid rgba(255,255,255,0.8);
+            background: var(--glass); backdrop-filter: blur(12px);
+            font-size: 1.1rem; box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--card-radius);
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-blue);
+        }
+
+        .cert-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.6rem;
+            line-height: 1.2;
+            color: #111;
+            margin: 10px 0 20px 0;
+        }
+
+        .info-row {
+            display: flex; align-items: center; gap: 10px;
+            margin-bottom: 12px; color: var(--text-muted); font-size: 0.95rem;
+        }
+
+        .info-row i { color: var(--primary-blue); width: 20px; }
+
+        /* Estilo ID Copiable (Tipo Código) */
+        .copy-container {
+            margin-top: 15px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .copy-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .id-code {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.75rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+            border: 1px solid #334155;
+        }
+
+        .id-code:hover { background: #334155; }
+
+        .id-code:active { transform: scale(0.98); }
+
+        .view-btn {
+            text-decoration: none;
+            background: var(--primary-blue);
+            color: white;
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; padding: 16px; border-radius: 16px;
+            font-family: 'Poppins', sans-serif; font-weight: 700;
+            transition: all 0.3s ease; margin-top: auto;
+        }
+
+        .view-btn:hover { background: #1e3c72; gap: 15px; }
+
+        .toast {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+            background: #10b981; color: white; padding: 10px 20px;
+            border-radius: 30px; font-weight: 600; opacity: 0; transition: opacity 0.3s;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) { header h1 { font-size: 2.2rem; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Certificaciones en Habilidades Blandas</h1>
+        <span class="subtitle"><i class="fa-solid fa-user-check"></i> Emilio Calep Vargas Yáñez</span>
+    </header>
+
+    <div class="search-container">
+        <input type="text" class="search-box" placeholder="Buscar habilidad o ID..." id="searchInput">
+    </div>
+
+    <div class="bento-grid" id="cardContainer"></div>
+
+    <footer>
+        <div style="text-align: center; margin-top: 60px; padding: 20px; border-top: 1px solid rgba(0,0,0,0.05);">
+            <p style="color: var(--text-muted); font-family: 'Poppins'; font-weight: 600; font-size: 0.9rem; margin-bottom: 10px;">
+                <i class="fa-solid fa-shield-halved"></i> Aviso de Privacidad
+            </p>
+            <p style="max-width: 600px; margin: 0 auto 25px; color: var(--text-muted); font-family: 'Inter'; font-size: 0.8rem; line-height: 1.6; opacity: 0.8;">
+                Los datos personales y profesionales aquí mostrados (certificaciones, folios de credencial e historial académico) son de carácter público y se exhiben exclusivamente con fines de validación de competencias y transparencia profesional.
+            </p>
+            <p style="color: var(--primary-blue); font-family: 'Poppins'; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.5px;">
+                ÚLTIMA ACTUALIZACIÓN: MARZO 2026
+            </p>
+        </div>
+    </footer>
+</div>
+
+<div class="toast" id="toast">ID Copiado al portapapeles</div>
+
+<script>
+const certificados = [
+    { id: 1, nombre: "Responsabilidad social", emisor: "Capacítate para el Empleo", fecha: "Julio 2023", idC: "9e1b77f1-de4e-4983-977b-02a237976075", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/9e1b77f1-de4e-4983-977b-02a237976075/" },
+    { id: 2, nombre: "Mérito", emisor: "Capacítate para el Empleo", fecha: "Julio 2023", idC: "8c8f81a6-f0bf-4d05-bf3b-76125f69791a", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/8c8f81a6-f0bf-4d05-bf3b-76125f69791a/" },
+    { id: 3, nombre: "Decisiones complejas", emisor: "Capacítate para el Empleo", fecha: "Julio 2023", idC: "e65d013c-6b37-4013-a45e-07aa2241dbcc", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/e65d013c-6b37-4013-a45e-07aa2241dbcc/" },
+    { id: 4, nombre: "Solidaridad", emisor: "Capacítate para el Empleo", fecha: "Julio 2023", idC: "fe76800b-9bc7-4eb3-abed-93d8964082e5", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/fe76800b-9bc7-4eb3-abed-93d8964082e5/" },
+    { id: 5, nombre: "Actitud de servicio", emisor: "Capacítate para el Empleo", fecha: "Julio 2023", idC: "a3aacdbb-ce5f-4dc9-a1f3-0dd17a5c71a4", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/a3aacdbb-ce5f-4dc9-a1f3-0dd17a5c71a4/" },
+    { id: 6, nombre: "Empatía", emisor: "Capacítate para el Empleo", fecha: "Julio 2023", idC: "c59c93f0-544d-459b-918d-11d81e43a69f", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/c59c93f0-544d-459b-918d-11d81e43a69f/" },
+    { id: 7, nombre: "Juego limpio", emisor: "Capacítate para el Empleo", fecha: "Enero 2025", idC: "3e924a66-55ea-4870-9f07-8a33561324f9", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/3e924a66-55ea-4870-9f07-8a33561324f9/" },
+    { id: 8, nombre: "Autoridad", emisor: "Capacítate para el Empleo", fecha: "Julio 2023", idC: "e0887ddd-647f-4f10-b6c8-a3fcba0a18f4", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/e0887ddd-647f-4f10-b6c8-a3fcba0a18f4/" },
+    { id: 9, nombre: "Versatilidad", emisor: "Capacítate para el Empleo", fecha: "Julio 2023", idC: "d0555345-3d67-4ceb-b71b-9ab1729246f3", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/d0555345-3d67-4ceb-b71b-9ab1729246f3/" },
+    { id: 10, nombre: "Manejo de contingencias", emisor: "Capacítate para el Empleo", fecha: "Julio 2023", idC: "7535fac5-51fe-4c2c-a3a9-e34db0f17c24", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/7535fac5-51fe-4c2c-a3a9-e34db0f17c24/" },
+    { id: 11, nombre: "Manejo de riesgos", emisor: "Capacítate para el Empleo", fecha: "Julio 2023", idC: "97ecde59-b524-4641-a9e9-9a17b0805399", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/97ecde59-b524-4641-a9e9-9a17b0805399/" },
+
+    { id: 12, nombre: "Constructor de paz digital", emisor: "Capacítate para el Empleo", fecha: "Diciembre 2023", idC: "83f19652-b9da-409e-9b85-da9045961893", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/83f19652-b9da-409e-9b85-da9045961893/" },
+    { id: 13, nombre: "Constructor de paz", emisor: "Capacítate para el Empleo", fecha: "Mayo 2023", idC: "8abfccbb-d625-4b00-a9b6-c37c524eadfd", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/8abfccbb-d625-4b00-a9b6-c37c524eadfd/" },
+    { id: 14, nombre: "Yo prevengo la violencia", emisor: "Capacítate para el Empleo", fecha: "Marzo 2024", idC: "7e275453-5ce6-4671-a415-3e2f8e617ce9", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/7e275453-5ce6-4671-a415-3e2f8e617ce9/" }
+];
+
+    // Función para eliminar acentos y normalizar texto
+    function normalizeText(text) {
+        return text.toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/[^a-z0-9\s]/g, "");
+    }
+
+    const container = document.getElementById('cardContainer');
+    const toast = document.getElementById('toast');
+
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text);
+        toast.style.opacity = '1';
+        setTimeout(() => toast.style.opacity = '0', 2000);
+    }
+
+    function renderCards(data) {
+        container.innerHTML = '';
+        if (data.length === 0) {
+            container.innerHTML = `
+                <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px; background: var(--glass); border-radius: var(--card-radius);">
+                    <i class="fa-solid fa-search" style="font-size: 3rem; color: var(--primary-blue); margin-bottom: 20px; display: inline-block;"></i>
+                    <p style="font-size: 1.2rem; color: var(--text-muted);">No se encontraron certificaciones</p>
+                    <p style="color: var(--text-muted); margin-top: 10px;">Intenta con otros términos de búsqueda</p>
+                </div>
+            `;
+            return;
+        }
+        
+        data.forEach(cert => {
+            const card = document.createElement('div');
+            card.className = 'cert-card';
+            card.innerHTML = `
+                <div style="font-family:'Poppins'; font-weight:700; font-size:0.75rem; color:var(--primary-blue); text-transform:uppercase; letter-spacing:1px;">
+                    <i class="fa-solid fa-award"></i> Credencial Verificada
+                </div>
+                <h2 class="cert-title">${cert.nombre}</h2>
+                <div class="info-row"><i class="fa-solid fa-landmark"></i> <span>${cert.emisor}</span></div>
+                <div class="info-row"><i class="fa-solid fa-calendar"></i> <span>${cert.fecha}</span></div>
+                
+                <div class="copy-container">
+                    <span class="copy-label">ID de Credencial (Clic para copiar)</span>
+                    <div class="id-code" onclick="copyToClipboard('${cert.idC}')">
+                        <span>${cert.idC.substring(0,25)}...</span>
+                        <i class="fa-regular fa-copy"></i>
+                    </div>
+                </div>
+
+                <a href="${cert.url}" target="_blank" class="view-btn">
+                    Mostrar Credencial <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        const normalizedTerm = normalizeText(term);
+        
+        const filtrados = certificados.filter(cert => {
+            const normalizedNombre = normalizeText(cert.nombre);
+            const normalizedId = cert.idC.toLowerCase();
+            
+            return normalizedNombre.includes(normalizedTerm) || 
+                   normalizedId.includes(normalizedTerm);
+        });
+        
+        renderCards(filtrados);
+    });
+
+    // Render inicial
+    renderCards(certificados);
+</script>
+</body>
+</html>

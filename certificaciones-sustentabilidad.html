@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificaciones en Sustentabilidad | Emilio Calep</title>
+    
+        <link rel="icon" type="image/png" href="https://emiliocolor.com/img-logos/favicon.png">
+    <link rel="apple-touch-icon" href="https://emiliocolor.com/img-logos/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            --accent-pastel: #bbf7d0;
+            --primary-green: #15803d;
+            --text-main: #1a1a1a;
+            --text-muted: #4b5563;
+            --glass: rgba(255, 255, 255, 0.85);
+            --card-radius: 28px;
+            --shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+            --gestion-color: #059669;
+            --conservacion-color: #16a34a;
+            --innovacion-color: #eab308;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: var(--text-main);
+            padding: 50px 20px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(134, 239, 172, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(187, 247, 208, 0.3) 0%, transparent 40%);
+            z-index: -1;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        header { text-align: center; margin-bottom: 60px; }
+
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 3.2rem;
+            letter-spacing: -1.5px;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #065f46, #15803d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--primary-green);
+            background: var(--accent-pastel);
+            padding: 8px 24px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-container { margin-bottom: 50px; display: flex; justify-content: center; }
+
+        .search-box {
+            width: 100%; max-width: 550px; padding: 20px 30px;
+            border-radius: 20px; border: 1px solid rgba(255,255,255,0.8);
+            background: var(--glass); backdrop-filter: blur(12px);
+            font-size: 1.1rem; box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .category-section {
+            margin-bottom: 50px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 12px;
+        }
+
+        .category-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: var(--shadow);
+        }
+
+        .category-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #065f46, #15803d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .category-badge {
+            background: var(--accent-pastel);
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-green);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .cert-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--card-radius);
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-green);
+        }
+
+        .cert-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.6rem;
+            line-height: 1.2;
+            color: #111;
+            margin: 10px 0 20px 0;
+        }
+
+        .info-row {
+            display: flex; align-items: center; gap: 10px;
+            margin-bottom: 12px; color: var(--text-muted); font-size: 0.95rem;
+        }
+
+        .info-row i { color: var(--primary-green); width: 20px; }
+
+        .copy-container {
+            margin-top: 15px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .copy-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary-green);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .id-code {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.75rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+            border: 1px solid #334155;
+        }
+
+        .id-code:hover { background: #334155; }
+        .id-code:active { transform: scale(0.98); }
+
+        .view-btn {
+            text-decoration: none;
+            background: var(--primary-green);
+            color: white;
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; padding: 16px; border-radius: 16px;
+            font-family: 'Poppins', sans-serif; font-weight: 700;
+            transition: all 0.3s ease; margin-top: auto;
+        }
+
+        .view-btn:hover { background: #065f46; gap: 15px; }
+
+        .toast {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+            background: #10b981; color: white; padding: 10px 20px;
+            border-radius: 30px; font-weight: 600; opacity: 0; transition: opacity 0.3s;
+            z-index: 1000;
+        }
+
+        .empty-state {
+            grid-column: 1/-1; 
+            text-align: center; 
+            padding: 60px 20px; 
+            background: var(--glass); 
+            border-radius: var(--card-radius);
+        }
+
+        .empty-state i {
+            font-size: 3rem; 
+            color: var(--primary-green); 
+            margin-bottom: 20px; 
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) { 
+            header h1 { font-size: 2.2rem; }
+            .category-title { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Certificaciones en Sustentabilidad</h1>
+        <style>
+    .back-home {
+        background: #e5e7eb;
+        color: #374151;
+        padding: 10px 20px;
+        border-radius: 40px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: background 0.3s, transform 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+    }
+
+    .back-home:hover {
+        background: #d1d5db;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+        .back-home {
+            padding: 8px 16px;
+            font-size: 0.8rem;
+        }
+    }
+</style>
+
+<a href="index.html" class="back-home">
+    <i class="fa-solid fa-arrow-left"></i> Volver a inicio
+</a>
+        <span class="subtitle"><i class="fa-solid fa-user-check"></i> Emilio Calep</span>
+    </header>
+
+    <div class="search-container">
+        <input type="text" class="search-box" placeholder="Buscar certificación o ID..." id="searchInput">
+    </div>
+
+    <div id="categoriesContainer"></div>
+
+    <footer>
+        <div style="text-align: center; margin-top: 60px; padding: 20px; border-top: 1px solid rgba(0,0,0,0.05);">
+            <p style="color: var(--text-muted); font-family: 'Poppins'; font-weight: 600; font-size: 0.9rem; margin-bottom: 10px;">
+                <i class="fa-solid fa-shield-halved"></i> Aviso de Privacidad
+            </p>
+            <p style="max-width: 600px; margin: 0 auto 25px; color: var(--text-muted); font-family: 'Inter'; font-size: 0.8rem; line-height: 1.6; opacity: 0.8;">
+                Los datos personales y profesionales aquí mostrados (certificaciones, folios de credencial e historial académico) son de carácter público y se exhiben exclusivamente con fines de validación de competencias y transparencia profesional.
+            </p>
+            <p style="color: var(--primary-green); font-family: 'Poppins'; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.5px;">
+                ÚLTIMA ACTUALIZACIÓN: ABRIL 2026
+            </p>
+        </div>
+    </footer>
+</div>
+
+<div class="toast" id="toast">ID Copiado al portapapeles</div>
+
+<script>
+const certificados = [
+    // ===== GESTIÓN AMBIENTAL =====
+    { id: 1, nombre: "Cálculo de huella hídrica", emisor: "Capacítate para el Empleo", fecha: "2025", idC: "fe839d6b-959a-41ac-adf2-b5420a3cdc88", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/fe839d6b-959a-41ac-adf2-b5420a3cdc88/", categoria: "gestion" },
+    { id: 2, nombre: "Cálculo de huella ecológica", emisor: "Capacítate para el Empleo", fecha: "2025", idC: "950d790f-649f-4390-99ab-8fc95c79ae8f", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/950d790f-649f-4390-99ab-8fc95c79ae8f/", categoria: "gestion" },
+    { id: 3, nombre: "Cálculo de huella de carbono", emisor: "Capacítate para el Empleo", fecha: "2025", idC: "5e5ca035-d4b0-46db-9901-0de1072c562f", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/5e5ca035-d4b0-46db-9901-0de1072c562f/", categoria: "gestion" },
+    { id: 4, nombre: "Gobernanza del agua", emisor: "Capacítate para el Empleo", fecha: "2025", idC: "f797fbfb-2ee5-49dd-96fb-de8629b57494", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/f797fbfb-2ee5-49dd-96fb-de8629b57494/", categoria: "gestion" },
+    { id: 5, nombre: "Gobernanza del aire", emisor: "Capacítate para el Empleo", fecha: "2025", idC: "73aed851-fc08-4531-ad6e-f5a633026a95", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/73aed851-fc08-4531-ad6e-f5a633026a95/", categoria: "gestion" },
+    { id: 6, nombre: "Concentración de agentes contaminantes en el aire", emisor: "Capacítate para el Empleo", fecha: "2025", idC: "faa1ae0b-9f7a-4b58-94c0-2dad62af8182", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/faa1ae0b-9f7a-4b58-94c0-2dad62af8182/", categoria: "gestion" },
+    { id: 7, nombre: "Auxiliar en la calidad del aire en interiores", emisor: "Capacítate para el Empleo", fecha: "2025", idC: "6d4bcafe-1c55-4880-b73d-81258c105140", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/6d4bcafe-1c55-4880-b73d-81258c105140/", categoria: "gestion" },
+
+    // ===== CONSERVACIÓN AMBIENTAL =====
+    { id: 8, nombre: "Cultura ambiental", emisor: "Capacítate para el Empleo", fecha: "2025", idC: "efc72941-f49d-4d16-94a6-6080a639aa45", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/efc72941-f49d-4d16-94a6-6080a639aa45/", categoria: "conservacion" },
+    { id: 9, nombre: "Elaboración de composta", emisor: "Capacítate para el Empleo", fecha: "2025", idC: "0d113a63-184c-40bc-93b3-4e0ed629bcc9", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/0d113a63-184c-40bc-93b3-4e0ed629bcc9/", categoria: "conservacion" },
+    { id: 10, nombre: "Instalador de techos verdes", emisor: "Capacítate para el Empleo", fecha: "2025", idC: "ca9bd3b3-275c-4ce6-bf8d-3aa8f872c9d0", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/ca9bd3b3-275c-4ce6-bf8d-3aa8f872c9d0/", categoria: "conservacion" },
+    { id: 11, nombre: "Reparador de aire acondicionado", emisor: "Capacítate para el Empleo", fecha: "2025", idC: "eefa9c6b-b62d-4381-a8f4-b33c28bba313", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/eefa9c6b-b62d-4381-a8f4-b33c28bba313/", categoria: "conservacion" },
+
+    // ===== INNOVACIÓN SOSTENIBLE =====
+    { id: 12, nombre: "Diseño de embalajes sostenibles", emisor: "Capacítate para el Empleo", fecha: "2025", idC: "1cd6edcc-4d4c-4ba7-81fe-4e3edf194ecb", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/1cd6edcc-4d4c-4ba7-81fe-4e3edf194ecb/", categoria: "innovacion" },
+    { id: 13, nombre: "Consumo sostenible", emisor: "Capacítate para el Empleo", fecha: "2025", idC: "8e961682-f560-4ae4-acbe-bd10075ab351", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/8e961682-f560-4ae4-acbe-bd10075ab351/", categoria: "innovacion" },
+    { id: 14, nombre: "Economía circular", emisor: "Capacítate para el Empleo", fecha: "2025", idC: "46c9f9cf-0ab4-4e25-b2a7-819b144fed29", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/46c9f9cf-0ab4-4e25-b2a7-819b144fed29/", categoria: "innovacion" },
+    { id: 15, nombre: "Huella digital", emisor: "Capacítate para el Empleo", fecha: "2025", idC: "1ca76354-1a2e-4dd0-8091-c1b40c46a6c5", url: "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/1ca76354-1a2e-4dd0-8091-c1b40c46a6c5/", categoria: "innovacion" },
+];
+
+    // Normalizar texto (sin acentos, minúsculas, solo alfanuméricos y espacios)
+    function normalizeText(text) {
+        return text.toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/[^a-z0-9\s]/g, "");
+    }
+
+    const toast = document.getElementById('toast');
+    const categoriesContainer = document.getElementById('categoriesContainer');
+
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text);
+        toast.style.opacity = '1';
+        setTimeout(() => toast.style.opacity = '0', 2000);
+    }
+
+    function escapeHtml(str) {
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    function renderCard(cert) {
+        const card = document.createElement('div');
+        card.className = 'cert-card';
+        card.innerHTML = `
+            <div style="font-family:'Poppins'; font-weight:700; font-size:0.75rem; color:var(--primary-green); text-transform:uppercase; letter-spacing:1px;">
+                <i class="fa-solid fa-award"></i> Credencial Verificada
+            </div>
+            <h2 class="cert-title">${escapeHtml(cert.nombre)}</h2>
+            <div class="info-row"><i class="fa-solid fa-landmark"></i> <span>${escapeHtml(cert.emisor)}</span></div>
+            <div class="info-row"><i class="fa-solid fa-calendar"></i> <span>${escapeHtml(cert.fecha)}</span></div>
+            
+            <div class="copy-container">
+                <span class="copy-label">ID de Credencial (Clic para copiar)</span>
+                <div class="id-code" onclick="copyToClipboard('${cert.idC}')">
+                    <span>${cert.idC.substring(0,25)}...</span>
+                    <i class="fa-regular fa-copy"></i>
+                </div>
+            </div>
+
+            <a href="${cert.url}" target="_blank" class="view-btn">
+                Mostrar Credencial <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+        `;
+        return card;
+    }
+
+    function renderCategories(gestion, conservacion, innovacion) {
+        categoriesContainer.innerHTML = '';
+
+        // Configuración de cada categoría
+        const categorias = [
+            { key: 'gestion', list: gestion, icon: 'fa-solid fa-recycle', color: '#059669', label: 'Gestión ambiental' },
+            { key: 'conservacion', list: conservacion, icon: 'fa-solid fa-tree', color: '#16a34a', label: 'Conservación ambiental' },
+            { key: 'innovacion', list: innovacion, icon: 'fa-solid fa-lightbulb', color: '#eab308', label: 'Innovación sostenible' }
+        ];
+
+        categorias.forEach(cat => {
+            if (cat.list.length === 0) return;
+
+            const section = document.createElement('div');
+            section.className = 'category-section';
+            section.innerHTML = `
+                <div class="category-header">
+                    <div class="category-icon" style="background: rgba(21, 128, 61, 0.1); border: 1px solid rgba(21, 128, 61, 0.3);">
+                        <i class="${cat.icon}" style="color: ${cat.color};"></i>
+                    </div>
+                    <div class="category-title">${cat.label}</div>
+                    <div class="category-badge">${cat.list.length} certificaciones</div>
+                </div>
+                <div class="bento-grid" id="grid-${cat.key}"></div>
+            `;
+            categoriesContainer.appendChild(section);
+
+            const grid = section.querySelector(`#grid-${cat.key}`);
+            cat.list.forEach(cert => {
+                grid.appendChild(renderCard(cert));
+            });
+        });
+
+        // Si no hay resultados en ninguna categoría
+        if (gestion.length === 0 && conservacion.length === 0 && innovacion.length === 0) {
+            const emptyDiv = document.createElement('div');
+            emptyDiv.className = 'empty-state';
+            emptyDiv.innerHTML = `
+                <i class="fa-solid fa-search"></i>
+                <p style="font-size: 1.2rem; color: var(--text-muted);">No se encontraron certificaciones</p>
+                <p style="color: var(--text-muted); margin-top: 10px;">Intenta con otros términos de búsqueda</p>
+            `;
+            categoriesContainer.appendChild(emptyDiv);
+        }
+    }
+
+    // Filtro de búsqueda
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        const normalizedTerm = normalizeText(term);
+
+        const filtrados = certificados.filter(cert => {
+            const normalizedNombre = normalizeText(cert.nombre);
+            const normalizedId = cert.idC.toLowerCase();
+            return normalizedNombre.includes(normalizedTerm) || 
+                   normalizedId.includes(normalizedTerm);
+        });
+
+        const gestion = filtrados.filter(c => c.categoria === 'gestion');
+        const conservacion = filtrados.filter(c => c.categoria === 'conservacion');
+        const innovacion = filtrados.filter(c => c.categoria === 'innovacion');
+
+        renderCategories(gestion, conservacion, innovacion);
+    });
+
+    // Render inicial
+    const inicialGestion = certificados.filter(c => c.categoria === 'gestion');
+    const inicialConservacion = certificados.filter(c => c.categoria === 'conservacion');
+    const inicialInnovacion = certificados.filter(c => c.categoria === 'innovacion');
+    renderCategories(inicialGestion, inicialConservacion, inicialInnovacion);
+</script>
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Actividades IPN | Emilio Calep</title>
+    
+        <link rel="icon" type="image/png" href="https://emiliocolor.com/img-logos/favicon.png">
+    <link rel="apple-touch-icon" href="https://emiliocolor.com/img-logos/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        /* --- Estilos (iguales a los originales) --- */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #fff5f5 0%, #fde2e2 100%);
+            --accent-pastel: #fecaca;
+            --primary-red: #991b1b;
+            --text-main: #1a1a1a;
+            --text-muted: #4b5563;
+            --glass: rgba(255, 255, 255, 0.85);
+            --card-radius: 28px;
+            --shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: var(--text-main);
+            padding: 50px 20px;
+            font-family: 'Inter', sans-serif;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(254, 202, 202, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(252, 165, 165, 0.3) 0%, transparent 40%);
+            z-index: -1;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 3.2rem;
+            letter-spacing: -1.5px;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #7f1d1d, #991b1b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--primary-red);
+            background: var(--accent-pastel);
+            padding: 8px 24px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .back-home {
+            background: #e5e7eb;
+            color: #374151;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .back-home:hover {
+            background: #d1d5db;
+            transform: translateY(-2px);
+        }
+        .search-container {
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .search-box {
+            width: 100%;
+            max-width: 550px;
+            padding: 20px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+        }
+        .cert-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--card-radius);
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow);
+        }
+        .cert-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-red);
+        }
+        .cert-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.6rem;
+            line-height: 1.2;
+            color: #111;
+            margin: 0 0 12px 0;
+        }
+        .description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-style: italic;
+            border-left: 3px solid var(--primary-red);
+            padding-left: 15px;
+        }
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .info-row i {
+            color: var(--primary-red);
+            width: 20px;
+        }
+        .info-row a {
+            color: var(--primary-red);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted transparent;
+            transition: border-color 0.2s;
+        }
+        .info-row a:hover {
+            border-bottom-color: var(--primary-red);
+        }
+        .request-btn {
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--primary-red);
+            border: 2px solid var(--primary-red);
+            border-radius: 40px;
+            padding: 12px 24px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+        .request-btn:hover {
+            background: var(--primary-red);
+            color: white;
+            transform: scale(1.02);
+        }
+        .empty-state {
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--glass);
+            border-radius: var(--card-radius);
+            display: none;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Actividades IPN</h1>
+            <a href="index.html" class="back-home">
+                <i class="fa-solid fa-arrow-left"></i> Volver a inicio
+            </a>
+            <span class="subtitle"><i class="fa-solid fa-user-check"></i> Emilio Calep</span>
+        </header>
+
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Buscar actividad, lugar, participación o descripción..." id="searchInput" />
+        </div>
+
+        <div id="cardsContainer" class="bento-grid">
+            <!-- ========================================================= -->
+            <!-- TARJETAS PREVIAS (15 en total)                             -->
+            <!-- ========================================================= -->
+
+            <!-- 1. Manual de Apoyo Integral para Redes de Género -->
+            <div class="cert-card" data-search="Manual de Apoyo Integral Redes de Género CECYT 9 2024 Compilador Implementador">
+                <h2 class="cert-title">Manual de Apoyo Integral para Redes de Género</h2>
+                <div class="description">Compilación e implementación de un manual integral para fortalecer las redes de género en el plantel, con enfoque en sensibilización y acompañamiento.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2024</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Compilador / Implementador</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Manual%20de%20Apoyo%20Integral%20para%20Redes%20de%20G%C3%A9nero&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Manual%20de%20Apoyo%20Integral%20para%20Redes%20de%20G%C3%A9nero%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202024%0AParticipaci%C3%B3n%3A%20Compilador%20%2F%20Implementador%0ADescripci%C3%B3n%3A%20Compilaci%C3%B3n%20e%20implementaci%C3%B3n%20de%20un%20manual%20integral%20para%20fortalecer%20las%20redes%20de%20g%C3%A9nero%20en%20el%20plantel%2C%20con%20enfoque%20en%20sensibilizaci%C3%B3n%20y%20acompa%C3%B1amiento.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 2. Manual de Reconocimiento y Manejo de la Violencia -->
+            <div class="cert-card" data-search="Manual Reconocimiento Manejo Violencia CECYT 9 2026 Difusor Desarrollador">
+                <h2 class="cert-title">Manual de Reconocimiento y Manejo de la Violencia</h2>
+                <div class="description">Desarrollo propio de un manual para identificar y gestionar situaciones de violencia, con apoyo institucional para su difusión dentro de la escuela.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2026</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Desarrollador / Difusor</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Manual%20de%20Reconocimiento%20y%20Manejo%20de%20la%20Violencia&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Manual%20de%20Reconocimiento%20y%20Manejo%20de%20la%20Violencia%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202026%0AParticipaci%C3%B3n%3A%20Desarrollador%20%2F%20Difusor%0ADescripci%C3%B3n%3A%20Desarrollo%20propio%20de%20un%20manual%20para%20identificar%20y%20gestionar%20situaciones%20de%20violencia%2C%20con%20apoyo%20institucional%20para%20su%20difusi%C3%B3n%20dentro%20de%20la%20escuela.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 3. Integrante Destacado de la Red de Género -->
+            <div class="cert-card" data-search="Integrante Destacado Red de Género CECYT 9 2024 2025">
+                <h2 class="cert-title">Integrante Destacado de la Red de Género</h2>
+                <div class="description">Participación activa como integrante de la Red de Género del plantel, destacando por la propuesta de actividades de sensibilización y apoyo académico.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2024 – 2025</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Integrante Destacado</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Integrante%20Destacado%20de%20la%20Red%20de%20G%C3%A9nero&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Integrante%20Destacado%20de%20la%20Red%20de%20G%C3%A9nero%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202024%20%E2%80%93%202025%0AParticipaci%C3%B3n%3A%20Integrante%20Destacado%0ADescripci%C3%B3n%3A%20Participaci%C3%B3n%20activa%20como%20integrante%20de%20la%20Red%20de%20G%C3%A9nero%20del%20plantel%2C%20destacando%20por%20la%20propuesta%20de%20actividades%20de%20sensibilizaci%C3%B3n%20y%20apoyo%20acad%C3%A9mico.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 4. Plataforma de Asesorías Institucional (2025-2) -->
+            <div class="cert-card" data-search="Plataforma Asesorías Institucional CECYT 9 2025-2 Desarrollador">
+                <h2 class="cert-title">Plataforma de Asesorías Institucional</h2>
+                <div class="description">Desarrollo e implementación de una plataforma digital para la gestión de asesorías académicas, correspondiente al semestre 2025-2.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2025-2</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Desarrollador</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Plataforma%20de%20Asesor%C3%ADas%20Institucional%20(2025-2)&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Plataforma%20de%20Asesor%C3%ADas%20Institucional%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202025-2%0AParticipaci%C3%B3n%3A%20Desarrollador%0ADescripci%C3%B3n%3A%20Desarrollo%20e%20implementaci%C3%B3n%20de%20una%20plataforma%20digital%20para%20la%20gesti%C3%B3n%20de%20asesor%C3%ADas%20acad%C3%A9micas%2C%20correspondiente%20al%20semestre%202025-2.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 5. Actualización de Plataforma de Asesorías (2026-1 y 2026-2) -->
+            <div class="cert-card" data-search="Actualización Plataforma Asesorías CECYT 9 2026-1 2026-2">
+                <h2 class="cert-title">Actualización de Plataforma de Asesorías</h2>
+                <div class="description">Actualización y mantenimiento de la plataforma de asesorías para los semestres 2026-1 y 2026-2, mejorando funcionalidades y experiencia de usuario.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2026-1 / 2026-2</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Actualizador</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Actualizaci%C3%B3n%20de%20Plataforma%20de%20Asesor%C3%ADas&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Actualizaci%C3%B3n%20de%20Plataforma%20de%20Asesor%C3%ADas%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202026-1%20%2F%202026-2%0AParticipaci%C3%B3n%3A%20Actualizador%0ADescripci%C3%B3n%3A%20Actualizaci%C3%B3n%20y%20mantenimiento%20de%20la%20plataforma%20de%20asesor%C3%ADas%20para%20los%20semestres%202026-1%20y%202026-2%2C%20mejorando%20funcionalidades%20y%20experiencia%20de%20usuario.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 6. Staff en Semana de la Ciencia, Tecnología y Humanidades (Batiz 2024) -->
+            <div class="cert-card" data-search="Staff Semana Ciencia Tecnología Humanidades Batiz 2024">
+                <h2 class="cert-title">Staff en Semana de la Ciencia, Tecnología y Humanidades</h2>
+                <div class="description">Participación como staff en la Semana de la Ciencia, Tecnología y Humanidades organizada en el plantel Batiz, apoyando la logística y operación de los eventos.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2024</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Staff</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Staff%20Semana%20de%20la%20Ciencia%2C%20Tecnolog%C3%ADa%20y%20Humanidades&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Staff%20en%20Semana%20de%20la%20Ciencia%2C%20Tecnolog%C3%ADa%20y%20Humanidades%22%0ALugar%3A%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202024%0AParticipaci%C3%B3n%3A%20Staff%0ADescripci%C3%B3n%3A%20Participaci%C3%B3n%20como%20staff%20en%20la%20Semana%20de%20la%20Ciencia%2C%20Tecnolog%C3%ADa%20y%20Humanidades%20organizada%20en%20el%20plantel%20Batiz%2C%20apoyando%20la%20log%C3%ADstica%20y%20operaci%C3%B3n%20de%20los%20eventos.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 7. Conferencia: Experiencia en Torneos de Robótica Nacionales -->
+            <div class="cert-card" data-search="Conferencia Experiencia Torneos Robótica Nacionales CECYT 9 2024">
+                <h2 class="cert-title">Conferencia: Experiencia en Torneos de Robótica Nacionales</h2>
+                <div class="description">Impartición de conferencia sobre la experiencia en torneos nacionales de robótica, compartiendo estrategias, aprendizajes y resultados obtenidos.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2024</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Conferencista</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Conferencia%20Experiencia%20en%20Torneos%20de%20Rob%C3%B3tica%20Nacionales&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Conferencia%3A%20Experiencia%20en%20Torneos%20de%20Rob%C3%B3tica%20Nacionales%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202024%0AParticipaci%C3%B3n%3A%20Conferencista%0ADescripci%C3%B3n%3A%20Impartici%C3%B3n%20de%20conferencia%20sobre%20la%20experiencia%20en%20torneos%20nacionales%20de%20rob%C3%B3tica%2C%20compartiendo%20estrategias%2C%20aprendizajes%20y%20resultados%20obtenidos.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 8. Conferencia: Futbol Champions Cup -->
+            <div class="cert-card" data-search="Conferencia Futbol Champions Cup CECYT 9 2024">
+                <h2 class="cert-title">Conferencia: Futbol Champions Cup</h2>
+                <div class="description">Conferencia sobre la experiencia y estrategias en la competencia de fútbol robótico Champions Cup, dentro del marco de la Semana de la Ciencia.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2024</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Conferencista</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Conferencia%20Futbol%20Champions%20Cup&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Conferencia%3A%20Futbol%20Champions%20Cup%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202024%0AParticipaci%C3%B3n%3A%20Conferencista%0ADescripci%C3%B3n%3A%20Conferencia%20sobre%20la%20experiencia%20y%20estrategias%20en%20la%20competencia%20de%20f%C3%BAtbol%20rob%C3%B3tico%20Champions%20Cup%2C%20dentro%20del%20marco%20de%20la%20Semana%20de%20la%20Ciencia.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 9. Implementación de Laboratorio de Electromagnetismo y Donación de Material -->
+            <div class="cert-card" data-search="Laboratorio Electromagnetismo Academia Física CECYT 9 2026 Implementador Donador">
+                <h2 class="cert-title">Laboratorio de Electromagnetismo para Academia de Física</h2>
+                <div class="description">Implementación exitosa del laboratorio de electromagnetismo, incluyendo la donación de material didáctico y equipo para su operación.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2026</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Implementador / Donador</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Laboratorio%20de%20Electromagnetismo&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Laboratorio%20de%20Electromagnetismo%20para%20Academia%20de%20F%C3%ADsica%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202026%0AParticipaci%C3%B3n%3A%20Implementador%20%2F%20Donador%0ADescripci%C3%B3n%3A%20Implementaci%C3%B3n%20exitosa%20del%20laboratorio%20de%20electromagnetismo%2C%20incluyendo%20la%20donaci%C3%B3n%20de%20material%20did%C3%A1ctico%20y%20equipo%20para%20su%20operaci%C3%B3n.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 10. Desarrollo de Material Didáctico para Química (Nomenclatura) -->
+            <div class="cert-card" data-search="Material Didáctico Química Nomenclatura CECYT 9 2024 Desarrollador">
+                <h2 class="cert-title">Material Didáctico para Química – Nomenclatura</h2>
+                <div class="description">Desarrollo de material didáctico especializado para la enseñanza de nomenclatura química, facilitando el aprendizaje de los estudiantes.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2024</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Desarrollador</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Material%20Did%C3%A1ctico%20para%20Qu%C3%ADmica%20(Nomenclatura)&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Material%20Did%C3%A1ctico%20para%20Qu%C3%ADmica%20%E2%80%93%20Nomenclatura%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202024%0AParticipaci%C3%B3n%3A%20Desarrollador%0ADescripci%C3%B3n%3A%20Desarrollo%20de%20material%20did%C3%A1ctico%20especializado%20para%20la%20ense%C3%B1anza%20de%20nomenclatura%20qu%C3%ADmica%2C%20facilitando%20el%20aprendizaje%20de%20los%20estudiantes.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 11. Donación de Material para Área Básica y Humanística -->
+            <div class="cert-card" data-search="Donación Material Área Básica Humanística CECYT 9 2024 Donador">
+                <h2 class="cert-title">Donación de Material para Área Básica y Humanística</h2>
+                <div class="description">Donación de materiales didácticos y recursos para el área básica y humanística, contribuyendo al fortalecimiento de la formación integral.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2024</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Donador</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Donaci%C3%B3n%20de%20Material%20para%20%C3%81rea%20B%C3%A1sica%20y%20Human%C3%ADstica&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Donaci%C3%B3n%20de%20Material%20para%20%C3%81rea%20B%C3%A1sica%20y%20Human%C3%ADstica%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202024%0AParticipaci%C3%B3n%3A%20Donador%0ADescripci%C3%B3n%3A%20Donaci%C3%B3n%20de%20materiales%20did%C3%A1cticos%20y%20recursos%20para%20el%20%C3%A1rea%20b%C3%A1sica%20y%20human%C3%ADstica%2C%20contribuyendo%20al%20fortalecimiento%20de%20la%20formaci%C3%B3n%20integral.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 12. Participante del Club de Robótica del CECYT 9 -->
+            <div class="cert-card" data-search="Club Robótica CECYT 9 2024 Participante">
+                <h2 class="cert-title">Club de Robótica del CECYT 9</h2>
+                <div class="description">Participación activa como miembro del Club de Robótica, contribuyendo en proyectos y actividades de desarrollo tecnológico y competencias.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2024 – 2026</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Participante</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Club%20de%20Rob%C3%B3tica%20del%20CECYT%209&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Club%20de%20Rob%C3%B3tica%20del%20CECYT%209%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202024%20%E2%80%93%202026%0AParticipaci%C3%B3n%3A%20Participante%0ADescripci%C3%B3n%3A%20Participaci%C3%B3n%20activa%20como%20miembro%20del%20Club%20de%20Rob%C3%B3tica%2C%20contribuyendo%20en%20proyectos%20y%20actividades%20de%20desarrollo%20tecnol%C3%B3gico%20y%20competencias.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 13. Exposición Educativa Girl Up "Juntas somos el cambio" (Organizador) -->
+            <div class="cert-card" data-search="Girl Up Juntas somos el cambio Centro Cultural Universitario Tlatelolco 2025 Organizador">
+                <h2 class="cert-title">Exposición Educativa Girl Up "Juntas somos el cambio"</h2>
+                <div class="description">Participación como organizador en la exposición educativa de Girl Up, promoviendo la igualdad de género y el empoderamiento femenino.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>Centro Cultural Universitario Tlatelolco</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2025</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Organizador</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Exposici%C3%B3n%20Educativa%20Girl%20Up&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Exposici%C3%B3n%20Educativa%20Girl%20Up%20%22Juntas%20somos%20el%20cambio%22%22%0ALugar%3A%20Centro%20Cultural%20Universitario%20Tlatelolco%0AA%C3%B1o%3A%202025%0AParticipaci%C3%B3n%3A%20Organizador%0ADescripci%C3%B3n%3A%20Participaci%C3%B3n%20como%20organizador%20en%20la%20exposici%C3%B3n%20educativa%20de%20Girl%20Up%2C%20promoviendo%20la%20igualdad%20de%20g%C3%A9nero%20y%20el%20empoderamiento%20femenino.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 14. 1ª Edición Futbot Champions Cup ExpoBatiz 2024 (Competidor) -->
+            <div class="cert-card" data-search="Futbot Champions Cup 1ª Edición ExpoBatiz 2024 Competidor CECYT 9">
+                <h2 class="cert-title">1ª Edición Futbot Champions Cup – ExpoBatiz 2024</h2>
+                <div class="description">Participación como competidor en la primera edición del torneo de fútbol robótico Futbot Champions Cup, realizado en el marco de la ExpoBatiz.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2024</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Competidor</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%201%C2%AA%20Edici%C3%B3n%20Futbot%20Champions%20Cup&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%221%C2%AA%20Edici%C3%B3n%20Futbot%20Champions%20Cup%20%E2%80%93%20ExpoBatiz%202024%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202024%0AParticipaci%C3%B3n%3A%20Competidor%0ADescripci%C3%B3n%3A%20Participaci%C3%B3n%20como%20competidor%20en%20la%20primera%20edici%C3%B3n%20del%20torneo%20de%20f%C3%BAtbol%20rob%C3%B3tico%20Futbot%20Champions%20Cup%2C%20realizado%20en%20el%20marco%20de%20la%20ExpoBatiz.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 15. 2ª Edición Futbot Champions Cup (Expositor, Coordinador y Competidor) -->
+            <div class="cert-card" data-search="Futbot Champions Cup 2ª Edición Feria de la Mujer 2025 Expositor Coordinador Competidor">
+                <h2 class="cert-title">2ª Edición Futbot Champions Cup – Feria de la Mujer 2025</h2>
+                <div class="description">Participación como expositor, coordinador y competidor en la segunda edición del torneo, realizado en el marco de la Feria de la Mujer en el Centro de la CDMX.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>Feria de la Mujer – Centro de la Ciudad de México</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2025</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Expositor / Coordinador / Competidor</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%202%C2%AA%20Edici%C3%B3n%20Futbot%20Champions%20Cup&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%222%C2%AA%20Edici%C3%B3n%20Futbot%20Champions%20Cup%20%E2%80%93%20Feria%20de%20la%20Mujer%202025%22%0ALugar%3A%20Feria%20de%20la%20Mujer%20%E2%80%93%20Centro%20de%20la%20Ciudad%20de%20M%C3%A9xico%0AA%C3%B1o%3A%202025%0AParticipaci%C3%B3n%3A%20Expositor%20%2F%20Coordinador%20%2F%20Competidor%0ADescripci%C3%B3n%3A%20Participaci%C3%B3n%20como%20expositor%2C%20coordinador%20y%20competidor%20en%20la%20segunda%20edici%C3%B3n%20del%20torneo%2C%20realizado%20en%20el%20marco%20de%20la%20Feria%20de%20la%20Mujer%20en%20el%20Centro%20de%20la%20CDMX.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- NUEVAS TARJETAS AGREGADAS (5)                               -->
+            <!-- ========================================================= -->
+
+            <!-- 16. Conversus Talks en ESCOM IPN -->
+            <div class="cert-card" data-search="Conversus Talks ESCOM IPN 2025 Difusor Red de Género Robótica">
+                <h2 class="cert-title">Conversus Talks – ESCOM IPN</h2>
+                <div class="description">Difusión de información sobre la conexión entre robótica y género, representando a la Red de Género del IPN en este evento.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>ESCOM IPN</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2025</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Difusor (Red de Género)</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Conversus%20Talks%20%E2%80%93%20ESCOM%20IPN&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Conversus%20Talks%20%E2%80%93%20ESCOM%20IPN%22%0ALugar%3A%20ESCOM%20IPN%0AA%C3%B1o%3A%202025%0AParticipaci%C3%B3n%3A%20Difusor%20(Red%20de%20G%C3%A9nero)%0ADescripci%C3%B3n%3A%20Difusi%C3%B3n%20de%20informaci%C3%B3n%20sobre%20la%20conexi%C3%B3n%20entre%20rob%C3%B3tica%20y%20g%C3%A9nero%2C%20representando%20a%20la%20Red%20de%20G%C3%A9nero%20del%20IPN%20en%20este%20evento.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 17. Difusión de Concientización de Género en CECYT 9 -->
+            <div class="cert-card" data-search="Difusión Concientización Género CECYT 9 2024 Difusor">
+                <h2 class="cert-title">Difusión de Concientización de Género</h2>
+                <div class="description">Difusión de información y materiales sobre concientización de género dirigida a la comunidad del plantel CECYT 9.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2024</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Difusor</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Difusi%C3%B3n%20de%20Concientizaci%C3%B3n%20de%20G%C3%A9nero&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Difusi%C3%B3n%20de%20Concientizaci%C3%B3n%20de%20G%C3%A9nero%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202024%0AParticipaci%C3%B3n%3A%20Difusor%0ADescripci%C3%B3n%3A%20Difusi%C3%B3n%20de%20informaci%C3%B3n%20y%20materiales%20sobre%20concientizaci%C3%B3n%20de%20g%C3%A9nero%20dirigida%20a%20la%20comunidad%20del%20plantel%20CECYT%209.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 18. Concientización sobre el Uso del Violentómetro -->
+            <div class="cert-card" data-search="Violentómetro Concientización CECYT 9 2025">
+                <h2 class="cert-title">Concientización sobre el Uso del Violentómetro</h2>
+                <div class="description">Actividad para concientizar a la comunidad escolar sobre el uso del violentómetro y la identificación temprana de violencias.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2025</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Concientizador</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Concientizaci%C3%B3n%20sobre%20el%20Uso%20del%20Violent%C3%B3metro&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Concientizaci%C3%B3n%20sobre%20el%20Uso%20del%20Violent%C3%B3metro%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202025%0AParticipaci%C3%B3n%3A%20Concientizador%0ADescripci%C3%B3n%3A%20Actividad%20para%20concientizar%20a%20la%20comunidad%20escolar%20sobre%20el%20uso%20del%20violent%C3%B3metro%20y%20la%20identificaci%C3%B3n%20temprana%20de%20violencias.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 19. Programa de Asesorías Institucionales para ETS -->
+            <div class="cert-card" data-search="Programa Asesorías Institucionales ETS CECYT 9 2024 Organizador Propulsor">
+                <h2 class="cert-title">Programa de Asesorías Institucionales para ETS</h2>
+                <div class="description">Organización y propuesta de un programa de asesorías institucionales enfocado en ETS, brindando apoyo académico a los estudiantes.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2024</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Organizador / Propulsor</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Programa%20de%20Asesor%C3%ADas%20Institucionales%20para%20ETS&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Programa%20de%20Asesor%C3%ADas%20Institucionales%20para%20ETS%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202024%0AParticipaci%C3%B3n%3A%20Organizador%20%2F%20Propulsor%0ADescripci%C3%B3n%3A%20Organizaci%C3%B3n%20y%20propuesta%20de%20un%20programa%20de%20asesor%C3%ADas%20institucionales%20enfocado%20en%20ETS%2C%20brindando%20apoyo%20acad%C3%A9mico%20a%20los%20estudiantes.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+            <!-- 20. Programa de Eventos de San Valentín -->
+            <div class="cert-card" data-search="Programa Eventos San Valentín CECYT 9 2025 Organizador Propulsor">
+                <h2 class="cert-title">Programa de Eventos de San Valentín</h2>
+                <div class="description">Propuesta y organización de un programa de eventos para celebrar el Día de San Valentín, fomentando la convivencia y participación de la comunidad.</div>
+                <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CECYT 9 - Plantel Juan de Dios Bátiz</span></div>
+                <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2025</span></div>
+                <div class="info-row"><i class="fa-regular fa-user"></i> <span>Organizador / Propulsor</span></div>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Programa%20de%20Eventos%20de%20San%20Valent%C3%ADn&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Programa%20de%20Eventos%20de%20San%20Valent%C3%ADn%22%0ALugar%3A%20CECYT%209%20-%20Plantel%20Juan%20de%20Dios%20B%C3%A1tiz%0AA%C3%B1o%3A%202025%0AParticipaci%C3%B3n%3A%20Organizador%20%2F%20Propulsor%0ADescripci%C3%B3n%3A%20Propuesta%20y%20organizaci%C3%B3n%20de%20un%20programa%20de%20eventos%20para%20celebrar%20el%20D%C3%ADa%20de%20San%20Valent%C3%ADn%2C%20fomentando%20la%20convivencia%20y%20participaci%C3%B3n%20de%20la%20comunidad.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                    <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                </a>
+            </div>
+
+        </div>
+
+        <footer>
+            <div style="text-align: center; margin-top: 60px; padding: 20px; border-top: 1px solid rgba(0,0,0,0.05);">
+                <p style="color: var(--text-muted); font-family: 'Poppins'; font-weight: 600; font-size: 0.9rem; margin-bottom: 10px;">
+                    <i class="fa-solid fa-shield-halved"></i> Aviso de Privacidad
+                </p>
+                <p style="max-width: 600px; margin: 0 auto 25px; color: var(--text-muted); font-family: 'Inter'; font-size: 0.8rem; line-height: 1.6; opacity: 0.8;">
+                    Los datos personales y profesionales aquí mostrados son de carácter público y se exhiben exclusivamente con fines de validación de competencias y transparencia profesional.
+                </p>
+                <p style="color: var(--primary-red); font-family: 'Poppins'; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.5px;">
+                    ÚLTIMA ACTUALIZACIÓN: ABRIL 2026
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.cert-card');
+        const emptyState = document.querySelector('.empty-state');
+
+        searchInput.addEventListener('input', function() {
+            const term = this.value.toLowerCase().trim();
+            let anyVisible = false;
+
+            cards.forEach(card => {
+                const searchData = card.getAttribute('data-search') || '';
+                const matches = searchData.toLowerCase().includes(term);
+                card.style.display = matches ? 'flex' : 'none';
+                if (matches) anyVisible = true;
+            });
+
+            if (emptyState) {
+                emptyState.style.display = anyVisible ? 'none' : 'block';
+            }
+        });
+    </script>
+</body>
+</html>

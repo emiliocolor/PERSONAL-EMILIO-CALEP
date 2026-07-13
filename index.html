@@ -1,768 +1,930 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    
-    <title>Emilio Calep · Portafolio de Competencias y Trayectoria Profesional</title>
-    <meta name="description" content="Portafolio profesional de Emilio Calep Vargas Yáñez. Técnico en Mecatrónica (CECyT 9), fundador de EmilioColor, conferencista e impulsor de proyectos de innovación y equidad.">
-    <meta name="keywords" content="Emilio Calep, EmilioColor, Mecatrónica, CECyT 9, Innovación Educativa, Emprendimiento Digital, Robótica, México">
-    <meta name="author" content="Emilio Calep Vargas Yáñez">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://emiliocolor.com/">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emilio Calep · Portafolio</title>
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://emiliocolor.com/">
-    <meta property="og:title" content="Emilio Calep · Portafolio de Competencias">
-    <meta property="og:description" content="Estudiante de mecatrónica, fundador de EmilioColor y desarrollador de soluciones integrales en tecnología e innovación social.">
-    <meta property="og:image" content="https://emiliocolor.com/assets/og-image.jpg"> <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://emiliocolor.com/">
-    <meta property="twitter:title" content="Emilio Calep · Portafolio de Competencias">
-    <meta property="twitter:description" content="Fundador de EmilioColor y Técnico en Mecatrónica. Explora mi trayectoria, logros y certificaciones académicas.">
-    <meta property="twitter:image" content="https://emiliocolor.com/assets/og-image.jpg">
+        <link rel="icon" type="image/png" href="https://emiliocolor.com/img-logos/favicon.png">
+    <link rel="apple-touch-icon" href="https://emiliocolor.com/img-logos/favicon.png">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Emilio Calep Vargas Yáñez",
-      "jobTitle": "Técnico en Mecatrónica",
-      "affiliation": {
-        "@type": "Organization",
-        "name": "EmilioColor"
-      },
-      "url": "https://emiliocolor.com",
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "CECyT 9 Juan de Dios Bátiz"
-      },
-      "knowsAbout": ["Mecatrónica", "Robótica", "Innovación Social", "Emprendimiento Digital"]
-    }
-    </script>
+    <!-- Google Fonts (Poppins + Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        /* ---------- RESET & VARIABLES ---------- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            background: radial-gradient(circle at 10% 20%, #f0f4fe, #e9eefa);
-            font-family: 'Inter', sans-serif;
-            color: #0a1a2f;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f8faff 0%, #eef2f7 100%);
+            --accent-pastel: #e0e7ff;
+            --primary-blue: #2a5298;
+            --text-main: #1a1a1a;
+            --text-muted: #636e72;
+            --glass: rgba(255, 255, 255, 0.8);
+            --card-radius: 28px;
+            --shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+            --navbar-bg: rgba(18, 30, 51, 0.85);
         }
 
-        /* fondo decorativo */
-        .bg-ornament {
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Fondo con círculos decorativos */
+        body::before {
+            content: "";
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(199, 210, 254, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(224, 231, 255, 0.4) 0%, transparent 40%);
             z-index: -1;
-            overflow: hidden;
+            pointer-events: none;
         }
-        .bg-ornament::before {
-            content: "";
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(ellipse at 30% 40%, rgba(42,82,152,0.03) 0%, transparent 60%);
-            top: -50%;
-            left: -50%;
+
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
         .container {
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.2rem 3rem;
+            padding: 0 24px;
         }
 
-        /* Hero de ancho completo (full-width) */
-        .hero-fullwidth {
-            width: 100vw;
-            position: relative;
-            left: 50%;
-            right: 50%;
-            margin-left: -50vw;
-            margin-right: -50vw;
-            background: rgba(255,255,255,0.72);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(255,255,255,0.8);
-            box-shadow: 0 20px 35px -16px rgba(0,0,0,0.08);
-            padding: 1.2rem 0;
-            margin-bottom: 0.75rem;
-        }
-
-        /* Contenido interno del hero manteniendo el max-width para centrar texto */
-        .hero-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1.2rem;
-        }
-
-        .hero-flex {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .hero-info h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(120deg, #1a3c6e, #2b4f8c);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            letter-spacing: -1px;
-            margin-bottom: 0.75rem;
-            line-height: 1.2;
-        }
-
-        /* Trayectoria académica - nuevo bloque */
-        .trayectoria-block {
-            background: rgba(255,255,255,0.5);
-            border-radius: 32px;
-            padding: 0.6rem 1.2rem;
-            margin: 0.5rem 0 0.8rem;
-            display: inline-block;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255,255,255,0.6);
-            width: auto;
-        }
-        .trayectoria-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-            color: #1e4a76;
-            display: block;
-            margin-bottom: 4px;
-        }
-        .trayectoria-datos {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: #0f2b4f;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            align-items: baseline;
-        }
-        .trayectoria-datos i {
-            margin-right: 4px;
-            color: #2a5298;
-            font-size: 0.8rem;
-        }
-        .sep-dot {
-            color: #6c86a3;
-            font-weight: 400;
-            margin: 0 2px;
-        }
-
-        .badge-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin: 0.5rem 0 0.5rem;
-        }
-
-        .badge {
-            background: white;
-            border-radius: 100px;
-            padding: 0.3rem 1rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #1e3a6b;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .badge i {
-            margin-right: 6px;
-            color: #2a5298;
-        }
-
-        .desc-text {
-            font-size: 0.95rem;
-            line-height: 1.45;
-            color: #2c3e50;
-            max-width: 580px;
-            margin-top: 0.5rem;
-        }
-
-        .hero-logo {
-            text-align: center;
-            background: linear-gradient(145deg, #ffffffd9, #f5f9ff);
-            padding: 1rem 1.5rem;
-            border-radius: 48px;
-            backdrop-filter: blur(4px);
-            box-shadow: 0 8px 20px -10px rgba(0,0,0,0.05);
-            flex-shrink: 0;
-        }
-
-        .hero-logo .brand {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 800;
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, #071cd5, #071cd5);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        .sitio-link-muted {
-            font-size: 0.7rem;
-            color: #8b9ab0;
-            margin-top: 8px;
-            letter-spacing: 0.2px;
-            font-weight: 400;
-            text-decoration: none;
-            background: none;
-            display: inline-block;
-            transition: color 0.2s ease;
-            cursor: pointer;
-        }
-        .sitio-link-muted:hover {
-            color: #2a5298;
-            text-decoration: underline;
-        }
-        .hero-logo small {
-            display: block;
-            font-size: 0.7rem;
-            color: #4b5563;
-        }
-
-        /* tarjetas de acceso - ahora más arriba (pegado al hero) */
-        .access-cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem;
-            justify-content: center;
-            margin: 1rem 0 2rem;
-        }
-
-        .access-card {
-            flex: 1;
-            min-width: 210px;
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(12px);
-            border-radius: 2rem;
-            padding: 1.4rem 1rem;
-            text-align: center;
-            transition: all 0.25s ease;
-            border: 1px solid rgba(255,255,255,0.7);
-            box-shadow: 0 12px 25px -12px rgba(0,0,0,0.1);
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .access-card:hover {
-            transform: translateY(-6px);
-            background: white;
-            border-color: #cbdffc;
-            box-shadow: 0 24px 36px -14px rgba(42,82,152,0.2);
-        }
-
-        .card-icon {
-            font-size: 2.4rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .access-card h3 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            line-height: 1.3;
-        }
-
-        .access-card p {
-            font-size: 0.75rem;
-            color: #4a5568;
-        }
-
-        /* sección logros */
-        .logros-section {
-            background: rgba(255,255,255,0.6);
+        /* ---------- NAVBAR (glassmorphism) ---------- */
+        .navbar {
+            background: var(--navbar-bg);
             backdrop-filter: blur(8px);
-            border-radius: 36px;
-            padding: 1.5rem 1.3rem;
-            margin: 1.5rem 0 1.5rem;
-            border: 1px solid rgba(255,255,255,0.6);
+            -webkit-backdrop-filter: blur(8px);
+            color: #fff;
+            padding: 16px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo-img {
+            height: 26px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            font-weight: 500;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            transition: color 0.2s;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #6fc3ff;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #fff;
+            background: none;
+            border: none;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            padding: 130px 0 80px;
+            margin-top: 70px;
+            text-align: center;
+            position: relative;
+            background: url('fondo.png') no-repeat center center / cover;
+            background-color: #f8faff; /* fallback */
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 3.6rem;
+            letter-spacing: -1.5px;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 small {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            -webkit-text-fill-color: var(--text-muted);
+            background: none;
+            margin-top: 8px;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 16px auto 24px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ---------- SECCIONES GENERALES ---------- */
+        section {
+            padding: 70px 0 60px;
         }
 
         .section-title {
             font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 1.6rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 1.2rem;
-            color: #0f2b4f;
-            flex-wrap: wrap;
-        }
-        .section-title i {
-            font-size: 1.5rem;
-            color: #2a5298;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .stat-item {
-            background: white;
-            border-radius: 28px;
-            padding: 1rem 0.8rem;
-            text-align: center;
-            transition: 0.2s;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.03);
-            border: 1px solid rgba(0,0,0,0.02);
-        }
-        .stat-number {
-            font-size: 2rem;
             font-weight: 800;
-            font-family: 'Poppins', sans-serif;
-            color: #1e4a76;
-            line-height: 1;
-        }
-        .stat-label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: #1f3a60;
-            margin-top: 6px;
-        }
-        .stat-sub {
-            font-size: 0.7rem;
-            color: #4b5563;
-            margin-top: 4px;
-            display: block;
+            font-size: 2.2rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            margin-bottom: 10px;
         }
 
-        /* badges de logros extendidos */
-        .logro-lista {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin: 1.2rem 0 0.5rem;
-        }
-        .logro-item {
-            background: #eef3ff;
-            border-radius: 100px;
-            padding: 0.4rem 1rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: #1e3a6b;
-            transition: all 0.1s ease;
-        }
-        .logro-item i {
-            margin-right: 8px;
-            font-size: 0.8rem;
+        .section-sub {
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-size: 1.05rem;
         }
 
-        /* Sección dedicada a "Impulsor y autor de" con más detalle y espacio propio */
-        .impulsor-detalle {
-            margin-top: 1.5rem;
-            background: rgba(255,255,255,0.5);
-            border-radius: 32px;
-            padding: 1.2rem 1.2rem;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255,255,255,0.8);
+        .text-center {
+            text-align: center;
         }
-        .impulsor-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 1.2rem;
-            padding-left: 0.5rem;
-            flex-wrap: wrap;
+
+        .text-center .section-title::after {
+            margin-left: auto;
+            margin-right: auto;
         }
-        .impulsor-header i {
-            font-size: 1.8rem;
-            color: #2a5298;
-        }
-        .impulsor-header h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #0f2b4f;
-            margin: 0;
-        }
-        .detalle-grid {
+
+        /* ---------- TARJETAS GLASS (estilo diplomados) ---------- */
+        .trayectoria-grid,
+        .proyectos-grid,
+        .cards-mini {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.2rem;
+            gap: 30px;
         }
-        .detalle-categoria {
-            background: white;
-            border-radius: 28px;
-            padding: 1.2rem 1.2rem;
-            transition: 0.2s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-            border: 1px solid #eef2ff;
+
+        .trayectoria-grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         }
-        .detalle-categoria h4 {
+
+        .proyectos-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+
+        .cards-mini {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        /* Wrapper para habilidades (tarjeta + botón debajo) */
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .skill-item .mini-card {
+            flex: 1;
+        }
+
+        .tray-card,
+        .proyecto-card,
+        .mini-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--card-radius);
+            padding: 28px 24px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .tray-card:hover,
+        .proyecto-card:hover,
+        .mini-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .tray-card .icon {
+            font-size: 2.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+        }
+
+        .tray-card h3 {
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
             font-size: 1.1rem;
-            margin-bottom: 0.9rem;
-            color: #1e3a6b;
+            margin-bottom: 4px;
+        }
+
+        .tray-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .tray-card .date-tag {
+            display: inline-block;
+            margin-top: 8px;
+            background: var(--accent-pastel);
+            padding: 2px 14px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* Proyectos */
+        .proyecto-card .proy-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+
+        .proyecto-card .proy-nombre {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text-main);
+        }
+
+        .proyecto-card .proy-anio {
+            background: var(--accent-pastel);
+            color: var(--primary-blue);
+            padding: 2px 12px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .proyecto-card .proy-lugar {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 2px 0 10px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            border-bottom: 2px solid #e0e9fc;
-            padding-bottom: 0.5rem;
+            gap: 6px;
         }
-        .detalle-categoria ul {
-            list-style: none;
-            padding-left: 0;
+
+        .proyecto-card .proy-lugar i {
+            color: var(--primary-blue);
         }
-        .detalle-categoria li {
-            margin-bottom: 0.9rem;
+
+        .proyecto-card .proy-desc {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin: 8px 0 16px;
+            flex: 1;
+        }
+
+        .proyecto-card .proy-link {
             font-size: 0.85rem;
-            line-height: 1.4;
+            color: var(--primary-blue);
+            margin-bottom: 16px;
+            display: inline-block;
+            word-break: break-all;
+        }
+
+        .proy-botones {
             display: flex;
-            gap: 10px;
-            align-items: flex-start;
-        }
-        .detalle-categoria li i {
-            color: #2a5298;
-            width: 20px;
-            font-size: 0.85rem;
-            margin-top: 2px;
-        }
-        .item-titulo {
-            font-weight: 700;
-            color: #0f2b4f;
-        }
-        .item-desc {
-            color: #4a5568;
-            font-size: 0.8rem;
-            display: block;
+            gap: 12px;
+            flex-wrap: wrap;
             margin-top: 4px;
-            margin-left: 0px;
         }
 
-        .footer-note {
+        .btn {
+            padding: 10px 20px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--glass);
+            color: var(--text-main);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--shadow);
+            font-family: 'Inter', sans-serif;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: #fff;
+            border-color: var(--primary-blue);
+        }
+
+        .btn-primary:hover {
+            background: #1e3c72;
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(42, 82, 152, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #b5cbeb;
+            color: var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent-pastel);
+            border-color: var(--primary-blue);
+        }
+
+        /* Botón blanco (fondo blanco, borde azul, texto azul) */
+        .btn-white {
+            background: #ffffff;
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
+        }
+        .btn-white:hover {
+            background: var(--accent-pastel);
+            border-color: var(--primary-blue);
+            transform: scale(1.02);
+        }
+
+        .btn-sm {
+            padding: 6px 14px;
+            font-size: 0.8rem;
+        }
+
+        /* Mini cards (habilidades, sustentabilidad) */
+        .mini-card {
             text-align: center;
-            margin-top: 2.5rem;
-            font-size: 0.75rem;
-            color: #4b5563;
-            border-top: 1px solid rgba(0,0,0,0.05);
-            padding-top: 1.5rem;
         }
 
-        /* Responsive improvements */
-        @media (max-width: 760px) {
-            .container {
-                padding: 0 1rem 2rem;
+        .mini-card i {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .mini-card h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+        }
+
+        .mini-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Sustentabilidad: tarjetas como enlaces */
+        .sust-card-link {
+            display: block;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: var(--card-radius);
+        }
+
+        .sust-card-link:hover {
+            transform: translateY(-6px);
+        }
+
+        .sust-card-link .mini-card {
+            height: 100%;
+            cursor: pointer;
+        }
+
+        /* ---------- SECCIÓN DIPLOMADOS (botón) ---------- */
+        .diploma-cta {
+            display: flex;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
+        .diploma-cta .btn {
+            padding: 14px 40px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Botón único de sustentabilidad */
+        .sust-cta {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .sust-cta .btn {
+            padding: 14px 40px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        /* ---------- FOOTER ---------- */
+        footer {
+            background: var(--navbar-bg);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #b6cee8;
+            padding: 40px 0 30px;
+            border-radius: 40px 40px 0 0;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        footer .footer-brand img {
+            height: 40px;
+            width: auto;
+            display: block;
+        }
+
+        footer .footer-email {
+            font-size: 0.9rem;
+            color: #8aaacf;
+        }
+
+        footer .social a {
+            color: #b6cee8;
+            margin-left: 18px;
+            font-size: 1.3rem;
+            transition: color 0.2s;
+        }
+
+        footer .social a:hover {
+            color: #fff;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 12px;
+                padding: 16px 0 8px;
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                margin-top: 12px;
             }
-            .hero-inner {
-                padding: 0 1rem;
+
+            .nav-links.active {
+                display: flex;
             }
-            .hero-info h1 { 
-                font-size: 1.8rem; 
-                word-break: break-word;
+
+            .hamburger {
+                display: block;
             }
-            .hero-flex { 
-                flex-direction: column; 
-                align-items: stretch;
-                gap: 1.2rem;
+
+            .hero h1 {
+                font-size: 2.4rem;
             }
-            .hero-logo {
-                align-self: center;
-                width: fit-content;
+
+            .hero h1 small {
+                font-size: 1rem;
             }
-            .access-cards {
-                gap: 1rem;
-                margin: 0.8rem 0 1.5rem;
+
+            .section-title {
+                font-size: 1.8rem;
             }
-            .access-card {
-                min-width: 160px;
-                padding: 1.2rem 0.8rem;
+
+            .proyectos-grid {
+                grid-template-columns: 1fr;
             }
-            .access-card h3 {
-                font-size: 1.1rem;
+
+            .trayectoria-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .stats-grid { 
-                grid-template-columns: 1fr 1fr;
-                gap: 0.9rem;
+
+            footer .container {
+                flex-direction: column;
+                text-align: center;
             }
-            .section-title { 
-                font-size: 1.3rem; 
-            }
-            .impulsor-header h3 { 
-                font-size: 1.2rem; 
-            }
-            .detalle-grid { 
-                grid-template-columns: 1fr; 
-            }
-            .trayectoria-datos { 
-                font-size: 0.8rem; 
-                flex-direction: column; 
-                gap: 4px; 
-                align-items: flex-start;
-            }
-            .logros-section {
-                padding: 1.2rem;
-            }
-            .impulsor-detalle {
-                padding: 1rem;
-            }
-            .detalle-categoria {
-                padding: 1rem;
-            }
-            .hero-logo .brand {
-                font-size: 1.3rem;
-            }
-            .desc-text {
-                font-size: 0.9rem;
-            }
-            .badge-group {
-                gap: 0.5rem;
+
+            footer .social a {
+                margin: 0 10px;
             }
         }
 
         @media (max-width: 480px) {
-            .stats-grid { 
-                grid-template-columns: 1fr; 
-            }
-            .access-card h3 {
-                font-size: 1rem;
-            }
-            .card-icon {
-                font-size: 2rem;
-            }
-            .section-title {
-                font-size: 1.2rem;
-            }
-            .hero-info h1 {
-                font-size: 1.6rem;
-            }
-            .trayectoria-block {
-                padding: 0.5rem 1rem;
-            }
-            .impulsor-header i {
-                font-size: 1.5rem;
-            }
-            .impulsor-header h3 {
-                font-size: 1.1rem;
-            }
-            .detalle-categoria h4 {
-                font-size: 1rem;
-            }
-            .detalle-categoria li {
-                gap: 8px;
-            }
-            .item-desc {
-                font-size: 0.75rem;
+            .trayectoria-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-<div class="bg-ornament"></div>
 
-<div class="hero-fullwidth">
-    <div class="hero-inner">
-        <div class="hero-flex">
-            <div class="hero-info">
-                <h1>Emilio Calep Vargas Yáñez</h1>
-                
-                <div class="trayectoria-block">
-                    <div class="trayectoria-datos">
-                        <span>Técnico en Mecatrónica por CECyT 9 "Juan de Dios Bátiz"</span>
-                        <span>2023 — 2026</span>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="https://emiliocolor.com/" target="_blank" rel="noopener noreferrer" class="logo-img-link">
+                <img src="logo_transparente_alargado.png" alt="Logo" class="logo-img" />
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Orden reubicado: Trayectoria, Habilidades, Diplomados, Sustentabilidad, Proyectos -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#trayectoria">Trayectoria</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#diplomados">Diplomados</a></li>
+                <li><a href="#sustentabilidad">Sustentabilidad</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO con fondo.png -->
+    <header class="hero" style="background: url('fondo.png') no-repeat center center / cover; background-color: #f8faff;">
+        <div class="container">
+            <h1>
+                Emilio Calep
+                <small>Técnico en Mecatrónica · CECyT 9 "Juan de Dios Bátiz" (2023–2026)</small>
+            </h1>
+
+            <p class="tagline">
+                Estudiante, emprendedor y divulgador tecnológico. Fundador y director de
+                EmilioColor®, impulsando proyectos de innovación, educación, impacto social
+                y desarrollo tecnológico.
+            </p>
+        </div>
+    </header>
+
+    <!-- TRAYECTORIA Y LOGROS -->
+    <section id="trayectoria">
+        <div class="container">
+            <h2 class="section-title">Trayectoria y Logros</h2>
+            <p class="section-sub">Formación y reconocimientos en instituciones líderes</p>
+            <div class="trayectoria-grid">
+                <div class="tray-card">
+                    <div class="icon"><i class="fas fa-university"></i></div>
+                    <h3>Instituto Politécnico Nacional</h3>
+                    <p>CECyT 9 "Juan de Dios Bátiz"</p>
+                    <span class="date-tag">2023‑2026</span>
+                    <div style="margin-top:14px;">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-info-circle"></i> mas información</a>
+                    </div>
+                </div>
+                <div class="tray-card">
+                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Universidad Nacional Autónoma de México</h3>
+                    <p>Participación en proyectos interdisciplinarios</p>
+                    <span class="date-tag">2024‑2025</span>
+                    <div style="margin-top:14px;">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-info-circle"></i> mas información</a>
+                    </div>
+                </div>
+                <div class="tray-card">
+                    <div class="icon"><i class="fas fa-city"></i></div>
+                    <h3>Gobierno de la Ciudad de México</h3>
+                    <p>Programas de innovación y desarrollo social</p>
+                    <span class="date-tag">2025</span>
+                    <div style="margin-top:14px;">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-info-circle"></i> mas información</a>
+                    </div>
+                </div>
+                <div class="tray-card">
+                    <div class="icon"><i class="fas fa-globe-americas"></i></div>
+                    <h3>Otras Instituciones</h3>
+                    <p>Colaboraciones con startups y ONGs</p>
+                    <span class="date-tag">2024‑2026</span>
+                    <div style="margin-top:14px;">
+                        <a href="#" class="btn btn-primary btn-sm"><i class="fas fa-info-circle"></i> mas información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="habilidades">
+        <div class="container">
+            <h2 class="section-title">Habilidades</h2>
+            <p class="section-sub">Competencias técnicas, blandas y emprendedoras</p>
+            <div class="cards-mini">
+                <!-- Habilidad 1 -->
+                <div class="skill-item">
+                    <div class="mini-card">
+                        <i class="fas fa-comments"></i>
+                        <h4>Habilidades Blandas</h4>
+                        <p>Comunicación efectiva, liderazgo, pensamiento crítico y trabajo colaborativo.</p>
+                    </div>
+                    <a href="habilidades-blandas.html" class="btn btn-primary btn-sm" style="align-self: center; width: fit-content;">
+                        <i class="fas fa-certificate"></i> Consultar certificaciones
+                    </a>
+                </div>
+                <!-- Habilidad 2 -->
+                <div class="skill-item">
+                    <div class="mini-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h4>Tecnológicas &amp; Empresariales</h4>
+                        <p>Dominio de herramientas digitales, metodologías ágiles y visión emprendedora.</p>
+                    </div>
+                    <a href="habilidades-tecnologicas-empresariales.html" class="btn btn-primary btn-sm" style="align-self: center; width: fit-content;">
+                        <i class="fas fa-certificate"></i> Consultar certificaciones
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIPLOMADOS (con botón que redirige a diplomados-rutas.html) -->
+    <section id="diplomados" style="background: rgba(224, 231, 255, 0.3);">
+        <div class="container">
+            <h2 class="section-title">Diplomados &amp; Rutas de Conocimiento</h2>
+            <p class="section-sub">Diplomados y rutas de conocimiento orientados al desarrollo de habilidades técnicas, tecnológicas y profesionales.</p>
+            <div class="diploma-cta">
+                <a href="diplomados-rutas.html" class="btn btn-primary" style="text-decoration:none;">
+                    <i class="fas fa-graduation-cap"></i> Explorar diplomados
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUSTENTABILIDAD -->
+    <section id="sustentabilidad">
+        <div class="container">
+            <h2 class="section-title">Sustentabilidad &amp; Medio Ambiente</h2>
+            <p class="section-sub">Certificados y proyectos orientados al desarrollo sostenible.</p>
+            <div class="cards-mini">
+                <a href="#" class="sust-card-link" target="_blank" rel="noopener noreferrer">
+                    <div class="mini-card">
+                        <i class="fas fa-globe-americas"></i>
+                        <h4>Gestión ambiental</h4>
+                        <p>Aplicación de economía circular, consumo sostenible y evaluación de huellas de carbono, hídrica y ecológica.</p>
+                    </div>
+                </a>
+
+                <a href="#" class="sust-card-link" target="_blank" rel="noopener noreferrer">
+                    <div class="mini-card">
+                        <i class="fas fa-seedling"></i>
+                        <h4>Conservación ambiental</h4>
+                        <p>Conocimientos en gobernanza del agua y del aire, calidad ambiental, composta y soluciones basadas en techos verdes.</p>
+                    </div>
+                </a>
+
+                <a href="#" class="sust-card-link" target="_blank" rel="noopener noreferrer">
+                    <div class="mini-card">
+                        <i class="fas fa-recycle"></i>
+                        <h4>Innovación sostenible</h4>
+                        <p>Desarrollo de proyectos con criterios de sostenibilidad, diseño de embalajes sostenibles y estrategias de residuos cero.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="sust-cta">
+                <a href="certificaciones-sustentabilidad.html" class="btn btn-primary"><i class="fas fa-certificate"></i> Ver certificaciones</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================= -->
+    <!-- PROYECTOS DE IMPACTO SOCIAL -->
+    <!-- ========================= -->
+    <section id="proyectos" style="background: rgba(224, 231, 255, 0.3);">
+        <div class="container">
+
+            <h2 class="section-title">Proyectos de Impacto Social</h2>
+            <p class="section-sub">
+                Iniciativas educativas, tecnológicas y de divulgación desarrolladas para generar impacto social.
+            </p>
+
+            <div class="proyectos-grid">
+
+                <!-- Comunidad -->
+                <div class="proyecto-card">
+                    <div class="proy-header">
+                        <span class="proy-nombre">Comunidad de Estudios Independiente del CECyT 9 "Juan de Dios Bátiz"</span>
+                        <span class="proy-anio">2024 - 2026</span>
+                    </div>
+
+                    <div class="proy-lugar">
+                        <i class="fas fa-map-pin"></i> Instituto Politécnico Nacional
+                    </div>
+
+                    <p class="proy-desc">
+                        Fundador y ex-secretario administrativo de una comunidad académica integrada por más de
+                        <strong>600 estudiantes</strong>, conformada por más de 24 grupos de estudio y una estructura
+                        organizacional dedicada al fortalecimiento del aprendizaje colaborativo,
+                        el liderazgo estudiantil y la preparación académica.
+                    </p>
+
+                    <div class="proy-botones">
+                        <!-- Enlace a Gmail (azul) -->
+                        <a class="btn btn-primary"
+                           href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20evidencias%20-%20Comunidad%20de%20Estudios%20Independiente&body=Hola%2C%0D%0A%0D%0AMe%20gustar%C3%ADa%20solicitar%20las%20evidencias%20correspondientes%20al%20proyecto%20%22Comunidad%20de%20Estudios%20Independiente%20del%20CECyT%209%20Juan%20de%20Dios%20B%C3%A1tiz%22.%0D%0A%0D%0AQuedo%20atento(a).%20Muchas%20gracias."
+                           target="_blank">
+                            <i class="fas fa-users"></i> Solicitar evidencias
+                        </a>
+                        <!-- Botón Página oficial (blanco) -->
+                        <a class="btn btn-white"
+                           href="https://www.comunidaddeestudiocecyt9.com/"
+                           target="_blank">
+                            <i class="fas fa-globe"></i> Página oficial
+                        </a>
+                        <!-- Botón Transparencia (blanco) -->
+                        <a class="btn btn-white"
+                           href="https://proyectos.emiliocolor.com/cececyt9/transparencia"
+                           target="_blank">
+                            <i class="fas fa-scale-balanced"></i> Transparencia
+                        </a>
                     </div>
                 </div>
 
-                <div class="desc-text">
-                    <i class="fas fa-quote-left" style="margin-right: 6px; opacity: 0.6;"></i> Estudiante de mecatrónica con pasión por la tecnología, innovación social y desarrollo de soluciones integrales. Fundador de un ecosistema de emprendimiento digital y tecnológico.
+                <!-- EmilioColor -->
+                <div class="proyecto-card">
+                    <div class="proy-header">
+                        <span class="proy-nombre">EmilioColor Proyectos</span>
+                        <span class="proy-anio">2024 - Actualidad</span>
+                    </div>
+
+                    <div class="proy-lugar">
+                        <i class="fas fa-map-pin"></i> México
+                    </div>
+
+                    <p class="proy-desc">
+                        Plataforma fundada y dirigida como parte de la marca EmilioColor®, destinada
+                        al desarrollo, organización y difusión de proyectos de impacto social,
+                        científico, educativo, tecnológico, ambiental y comunitario.
+                    </p>
+
+<div class="proy-botones">
+    <button
+        class="btn btn-primary"
+        onclick="window.open('https://proyectos.emiliocolor.com/', '_blank')">
+        <i class="fas fa-eye"></i> Ver proyectos
+    </button>
+</div>
                 </div>
             </div>
-            <div class="hero-logo">
-                <div class="brand">EmilioColor<sup>®</sup></div>
-                <small>Fundador & Director</small>
-                <div style="margin-top: 8px;"><i class="fas fa-chart-line"></i> Grupo de Empresas</div>
-                <a href="https://emiliocolor.com/" target="_blank" rel="noopener noreferrer" class="sitio-link-muted" style="text-decoration: none; display: inline-block;">ingresar a sitio oficial</a>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="container">
-    <div class="access-cards">
-        <a href="diplomados-rutas.html" class="access-card" target="_blank">
-            <div class="card-icon"><i class="fas fa-graduation-cap" style="color:#0f766e;"></i></div>
-            <h3>Diplomados &<br>Rutas de Conocimiento</h3>
-            <p>Ver certificaciones oficiales · Credenciales verificables</p>
-        </a>
-        <a href="habilidades-blandas.html" class="access-card" target="_blank">
-            <div class="card-icon"><i class="fas fa-hand-sparkles" style="color:#b45309;"></i></div>
-            <h3>Habilidades Blandas</h3>
-            <p>Ver certificaciones oficiales · Credenciales verificables</p>
-        </a>
-        <a href="tecnologicas-empresariales.html" class="access-card" target="_blank">
-            <div class="card-icon"><i class="fas fa-laptop-code" style="color:#2563eb;"></i></div>
-            <h3>Tecnológicas &<br>Empresariales</h3>
-            <p>Ver certificaciones oficiales · Credenciales verificables</p>
-        </a>
-    </div>
+        </div>
+    </section>
 
-    <div class="logros-section">
-        <div class="section-title">
-            <i class="fas fa-medal"></i> 
-            <span>Trayectoria & Logros</span>
-        </div>
-        
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number">2</div>
-                <div class="stat-label"><i class="fas fa-chalkboard-user"></i> Conferencias impartidas</div>
-                <span class="stat-sub">ámbito tecnológico e innovación</span>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">3</div>
-                <div class="stat-label"><i class="fas fa-robot"></i> Torneos de robótica</div>
-                <span class="stat-sub">Competencias nacionales / regionales</span>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">2</div>
-                <div class="stat-label"><i class="fas fa-flask"></i> Becas de excelencia</div>
-                <span class="stat-sub">Taller de Ciencia Jóvenes UNAM 2024</span>
-                <span class="stat-sub">Talent Land México 2026</span>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">8<small style="font-size:1rem;">+</small></div>
-                <div class="stat-label"><i class="fas fa-microphone-alt"></i> Ponencias & Simposios</div>
-                <span class="stat-sub">Eventos académicos y divulgación</span>
-            </div>
-        </div>
-    </div>
+    <!-- ========================= -->
+    <!-- AUTORÍA PROPIA -->
+    <!-- ========================= -->
+    <section id="autoria" style="background: rgba(224, 231, 255, 0.3);">
+        <div class="container">
 
-    <div class="impulsor-detalle">
-        <div class="impulsor-header">
-            <i class="fas fa-lightbulb"></i>
-            <h3>Impulsor y autor de</h3>
-        </div>
-        
-        <div class="detalle-grid">
-            <div class="detalle-categoria">
-                <h4><i class="fas fa-book"></i> Obra editorial & técnica</h4>
-                <ul>
-                    <li>
-                        <i class="fas fa-file-alt"></i>
-                        <div>
-                            <span class="item-titulo">Manual compilado para Redes de Género</span>
-                            <span class="item-desc">Compilación técnica de materiales, protocolos y recursos para fortalecer el trabajo de las redes de género.</span>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-scale-balanced"></i>
-                        <div>
-                            <span class="item-titulo">Manual de identificación de la violencia</span>
-                            <span class="item-desc">Documento orientado a reconocer y abordar distintos tipos de violencia dentro del entorno escolar.</span>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-book-open"></i>
-                        <div>
-                            <span class="item-titulo">Libro de ciencia ficción: "El misterio de Yanggakdo"</span>
-                            <span class="item-desc">Obra literaria que explora misterios tecnológicos y sociales en un contexto internacional.</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="detalle-categoria">
-                <h4><i class="fas fa-hand-holding-heart"></i> Equidad e inclusión</h4>
-                <ul>
-                    <li>
-                        <i class="fas fa-people-group"></i>
-                        <div>
-                            <span class="item-titulo">Sensibilización en temas de género</span>
-                            <span class="item-desc">Participación en actividades de sensibilización sobre igualdad y campañas del Día Naranja en el CECyT 9.</span>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-comments"></i>
-                        <div>
-                            <span class="item-titulo">Espacios de diálogo sobre igualdad</span>
-                            <span class="item-desc">Colaboración en eventos de diálogo enfocados en la promoción de entornos escolares respetuosos.</span>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-envelope-open-text"></i>
-                        <div>
-                            <span class="item-titulo">Dinámica de buzón de cartas</span>
-                            <span class="item-desc">Fomento de la convivencia estudiantil y expresión positiva entre la comunidad escolar.</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="detalle-categoria">
-                <h4><i class="fas fa-school"></i> Programas académicos (CECyT 9)</h4>
-                <ul>
-                    <li>
-                        <i class="fas fa-users"></i>
-                        <div>
-                            <span class="item-titulo">Comunidad de estudio estudiantil</span>
-                            <span class="item-desc">Cofundador de una comunidad de estudio que integró a una cuarta parte de la plantilla total del CECyT 9.</span>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-laptop"></i>
-                        <div>
-                            <span class="item-titulo">Plataforma de asesorías institucionales</span>
-                            <span class="item-desc">Impulso a la creación de una plataforma de asesorías académicas para apoyo entre pares.</span>
-                        </div>
-                    </li>
-                    <li>
-                        <i class="fas fa-chart-line"></i>
-                        <div>
-                            <span class="item-titulo">Programa de recuperación académica</span>
-                            <span class="item-desc">Desarrollo de estrategias de acompañamiento para estudiantes en riesgo académico.</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+            <h2 class="section-title">Autoría Propia</h2>
 
-        <div style="margin-top: 1.5rem; border-radius: 24px; padding: 0.7rem 1rem; font-size: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: space-between; align-items: center; background: rgba(255,255,240,0.3);">
-            <span><i class="fas fa-user-graduate"></i> Más de 2600 estudiantes beneficiados indirectamente</span>
-            <span><i class="fas fa-certificate"></i> Reconocimiento institucional por innovación educativa</span>
-            <span><i class="fas fa-calendar-week"></i> Proyectos activos durante 2024-2026</span>
+            <p class="section-sub">
+                Obras originales desarrolladas como autor, registradas para la protección de sus derechos de propiedad intelectual.
+            </p>
+
+            <div class="proyectos-grid">
+
+                <!-- Manual -->
+                <div class="proyecto-card">
+
+                    <div class="proy-header">
+                        <span class="proy-nombre">Manual de Identificación de la Violencia</span>
+                        <span class="proy-anio">2025</span>
+                    </div>
+
+                    <div class="proy-lugar">
+                        <i class="fas fa-map-pin"></i> México
+                    </div>
+
+                    <p class="proy-desc">
+                        Autor del <strong>Manual de Identificación de la Violencia</strong>, una obra orientada a la sensibilización, identificación y prevención de la violencia con perspectiva de género, desarrollada como material de consulta para fortalecer la cultura de prevención y respeto dentro de la comunidad. La obra se encuentra <strong>registrada ante el Instituto Nacional del Derecho de Autor (INDAUTOR)</strong>, así como en el <strong>Registro Público del Derecho de Autor (INDARELIN)</strong>.
+                    </p>
+
+                    <div class="proy-botones">
+                        <!-- Enlace a Gmail -->
+                        <a class="btn btn-primary"
+                           href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20informaci%C3%B3n%20-%20Manual%20de%20Identificaci%C3%B3n%20de%20la%20Violencia&body=Hola%2C%0D%0A%0D%0AMe%20gustar%C3%ADa%20solicitar%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Manual%20de%20Identificaci%C3%B3n%20de%20la%20Violencia.%0D%0A%0D%0AGracias.%0D%0A"
+                           target="_blank">
+                            <i class="fas fa-envelope"></i> Solicitar más información
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Libro -->
+                <div class="proyecto-card">
+
+                    <div class="proy-header">
+                        <span class="proy-nombre">El misterio de Yanggakdo</span>
+                        <span class="proy-anio">2025</span>
+                    </div>
+
+                    <div class="proy-lugar">
+                        <i class="fas fa-map-pin"></i> Proyecto Editorial
+                    </div>
+
+                    <p class="proy-desc">
+                        Autor de la novela de ficción <strong>El misterio de Yanggakdo</strong>, una obra literaria original que refleja mi interés por la creación narrativa y el desarrollo editorial. La obra se encuentra <strong>registrada ante el Instituto Nacional del Derecho de Autor (INDAUTOR)</strong>, así como en el <strong>Registro Público del Derecho de Autor (INDARELIN)</strong>.
+                    </p>
+
+                    <div class="proy-botones">
+                        <!-- Enlace a Gmail -->
+                        <a class="btn btn-primary"
+                           href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20informaci%C3%B3n%20-%20El%20misterio%20de%20Yanggakdo&body=Hola%2C%0D%0A%0D%0AMe%20gustar%C3%ADa%20solicitar%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20obra%20%22El%20misterio%20de%20Yanggakdo%22.%0D%0A%0D%0AGracias.%0D%0A"
+                           target="_blank">
+                            <i class="fas fa-envelope"></i> Solicitar más información
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-    </div>
-        
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <div style="text-align: center; margin-top: 40px; padding: 20px 0 10px; border-top: 1px solid rgba(0,0,0,0.05);">
-            <p style="color: #1f3a60; font-family: 'Poppins'; font-weight: 600; font-size: 0.85rem; margin-bottom: 10px;">
-                <i class="fa-solid fa-shield-halved"></i> Aviso de Privacidad
-            </p>
-            <p style="max-width: 600px; margin: 0 auto 20px; font-family: 'Inter'; font-size: 0.75rem; line-height: 1.5; opacity: 0.8; color: #2c3e50;">
-                Los datos personales y profesionales aquí mostrados son de carácter público y se exhiben exclusivamente con fines de validación de competencias y transparencia profesional.
-            </p>
-            <p style="color: #1e4a76; font-family: 'Poppins'; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.5px;">
-                ÚLTIMA ACTUALIZACIÓN: ABRIL 2026
-            </p>
+        <div class="container">
+            <div class="footer-brand">
+                <img src="logo_transparente_alargado_leyenda.png" alt="Logo" />
+            </div>
+            <div class="footer-email">
+                <i class="fas fa-envelope"></i> contacto@emiliocalep.emiliocolor.com
+            </div>
+            <div class="social">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
     </footer>
-</div>
+
+    <!-- JS para menú móvil -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = hamburger.querySelector('i');
+                icon.className = 'fas fa-bars';
+            });
+        });
+    </script>
+
 </body>
 </html>
